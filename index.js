@@ -5,7 +5,6 @@ const weather = require("weather-js");
 const token = "process.env.TOKEN";
 const Wiki = require("wikijs");
 const express = require("express");
-const adapter = new FileSync("database.json");
 var app = express();
 var AuthDetails = require("./auth.json");
 var RedisSessions = require("redis-sessions");
