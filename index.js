@@ -207,19 +207,19 @@ client.on('ready', function () {
 
 client.on('message', function (message) {
     if (message.content === 'Bonjour') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
     }
 })
 
 client.on('message', function (message) {
     if (message.content === 'bonjour') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'bj') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
         }
 })
 
@@ -232,13 +232,13 @@ client.on('message', function (message) {
 
 client.on('message', function (message) {
     if (message.content === 'cc') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'CC') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
         }
 })
 
