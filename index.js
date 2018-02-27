@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const help_embed = new Discord.RichEmbed()
 const client = new Discord.Client();
 const weather = require("weather-js");
+client.login("NDE3ODcwMjE1NjMyNjUwMjQx.DXZTfA.P6m4yWWsoQP74YJCAiz_tbtvb8I");
 const Wiki = require("wikijs");
 const express = require("express");
 var app = express();
@@ -21,7 +22,7 @@ const opts = {
   maxResults: 3,
   key: AuthDetails.youtube_api_key
 };
-client.login("process.env.TOKEN");
+
 client.on("ready", () => {
 var memberCount = client.users.size;
 var servercount = client.guilds.size;
