@@ -21,7 +21,7 @@ const opts = {
   maxResults: 3,
   key: AuthDetails.youtube_api_key
 };
-client.login = "NDEwODI0MDI3NjUzNzk5OTM2.DVyxYA.QdwLDGm4m0scPrD4nDgZa8S-w1Q";
+client.login = "process.env.TOKEN";
 client.on("ready", () => {
 var memberCount = client.users.size;
 var servercount = client.guilds.size;
