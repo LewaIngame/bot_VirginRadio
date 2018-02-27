@@ -561,4 +561,3 @@ client.on('message', message => {
 });
 
 app.listen(AuthDetails.port);
-client.login(token)
