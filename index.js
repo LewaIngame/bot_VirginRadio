@@ -5,7 +5,6 @@ const weather = require("weather-js");
 const token = "process.env.TOKEN";
 const Wiki = require("wikijs");
 const express = require("express");
-const low = require("lowdb");
 const FileSync = require("lowdB/adapters/FileSync");
 const adapter = new FileSync("database.json");
 const db = low(adapter)
