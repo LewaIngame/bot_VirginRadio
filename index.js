@@ -42,7 +42,6 @@ client.on('message', message => {
         case ("!play") :
             console.log("Play");
             message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
             if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
             else music.voice();
@@ -51,7 +50,6 @@ client.on('message', message => {
         case ("!pause") :
             console.log("Pause");
             message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
             if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
             music.pause();
@@ -60,7 +58,6 @@ client.on('message', message => {
         case ("!resume") :
             console.log("Resume");
             message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
             if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
             music.resume();
@@ -69,7 +66,6 @@ client.on('message', message => {
         case ("!stop") :
             console.log("Stop");
             message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
             if (music.getTab(0) == null) return message.reply('Aucune musique');
             else music.stop();
