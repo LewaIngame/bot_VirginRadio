@@ -91,7 +91,7 @@ client.on('message', message => {
                 }
             })
             break;
-        case ("!link") :
+        case ("e!link") :
             console.log("Link");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -100,7 +100,7 @@ client.on('message', message => {
             console.log(link);
             music.setTabEnd(link);
             break;
-        case ("!volume") :
+        case ("e!volume") :
             console.log("Volume");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -109,7 +109,7 @@ client.on('message', message => {
             music.volume(link/100);
             message.reply("le volume et maintenant à :" + link);
             break;
-        case ("!next") :
+        case ("e!next") :
         console.log("Next");
         message.delete(message.author);
         if (music.getI() < music.getLengthTab()) music.setI(this.i + 1);
@@ -148,50 +148,7 @@ else if (message.content.startsWith("!météo")){
         message.reply("Idk pourquoi c'est cassé tbh :(");
         }
     }
-else if (message.content.startsWith("!wikipedia")){
-            if(!message.content.substr(5)) {
-                console.log(Date.now(), "DANGER", "Vous devez fournir un terme de recherche.");
-                message.reply("Vous devez fournir un terme de recherche.");
-                return;
-            }
-            var wiki = new Wiki.default();
-            wiki.search(message.content.substr(5)).then(function(data) {
-                if(data.results.length==0) {
-                    console.log(Date.now(), "DANGER","Wikipedia ne trouve pas ce que vous avez demandée : " + message.content.substr(5));
-                    message.reply("Je ne peut trouvé ce que vous voulez dans Wikipedia :(");
-                    return;
-                }
-                wiki.page(data.results[0]).then(function(page) {
-                    page.summary().then(function(summary) {
-                        if(summary.indexOf(" may refer to:") > -1 || summary.indexOf(" may stand for:") > -1) {
-                            var options = summary.split("\n").slice(1);
-                            var info = "Selectioné une options parmis celle-ci :";
-                            for(var i=0; i<options.length; i++) {
-                                info += "\n\t" + i + ") " + options[i];
-                            }
-                            message.reply(info);
-                            selectMenu(message.channel, message.author.id, function(i) {
-                                commands.wiki.process(Client, message, options[i].substring(0, options[i].indexOf(",")));
-                            }, options.length-1);
-                        } else {
-                            var sumText = summary.split("\n");
-                            var count = 0;
-                            var continuation = function() {
-                                var paragraph = sumText.shift();
-                                if(paragraph && count<3) {
-                                    count++;
-                                    message.reply(message.channel, paragraph, continuation);
-                                }
-                            };
-                            message.reply("**Trouvé " + page.raw.fullurl + "**", continuation);
-                        }
-                    });
-                });
-            }, function(err) {
-                console.log(Date.now(), "ERREUR","Impossible de se connecté a Wikipédia");
-                message.reply("Uhhh...Something went wrong :(");
-            });
-        
+	
 } else if (message.content.startsWith('!youtube')){
 youtube_plugin.respond(message.content, message.channel , client);
 }
@@ -214,13 +171,13 @@ client.on('message', function (message) {
 
 client.on('message', function (message) {
     if (message.content === 'bonjour') {
-        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`Bonjour à toi ${message.author.username}`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'bj') {
-        message.channel.send(`/tts Bonjour à toi ${message.author.username}`) 
+        message.channel.send(`Bonjour à toi ${message.author.username}`) 
         }
 })
 
@@ -257,66 +214,110 @@ client.on('message', function (message) {
 
 client.on('message', function (message) {
     if (message.content === 'merde') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Merde') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'fdp') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'FDP') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'fils de pute') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Fils de pute') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Enculler') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'enculler') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Nique ta mère') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'nique ta mère') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'nike ta mère') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
@@ -329,185 +330,186 @@ client.on('message', function (message) {
 
 client.on('message', function (message) {
     if (message.content === 'Nike ta mère') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Grosse pute') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'vntm') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'VNTM') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'pd') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(`:red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'PD') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(`:red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'con') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker:`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'connard') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
         }
 })
 
 client.on('message', function (message) {
-    if (message.content === 'tg') 
+    if (message.content === 'tg')
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `)
         }
 )
 
 client.on('message', function (message) {
     if (message.content === 'ftg') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'con') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
         }
 })
 
 client.on('message', function (message) {
-    if (message.content === 'je kiff le serv') {
-        message.channel.send(`:kissing_heart:  MERCI ${message.author.username} :kissing_heart: `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Je kiff le serv') {
-        message.channel.send(`:kissing_heart:  MERCI ${message.author.username} :kissing_heart: `) 
-        }
-})
-
-
-client.on('message', function (message) {
     if (message.content === 'caca') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
         message.channel.send(`Tu aime vraiment sa ${message.author.username}  https://www.youtube.com/watch?v=zm0xLiy6aqs ?`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'bite') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(`:triumph: PAS DE SES MOTS ${message.author.username} :triumph:`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'chatte') {
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+	message.delete(message.author);
         message.channel.send(`:triumph: PAS DE SES MOTS ${message.author.username} :triumph:`) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Bonne nuit') {
-        message.channel.send(`Bonne nuit a toi ${message.author.username} `) 
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'Bn') {
-        message.channel.send(`Bonne nuit a toi ${message.author.username} `) 
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'bn') {
-        message.channel.send(`Bonne nuit a toi ${message.author.username} `) 
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'BN') {
-        message.channel.send(`Bonne nuit a toi ${message.author.username} `) 
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
         }
 })
 
 client.on('message', function (message) {
     if (message.content === 'bN') {
-        message.channel.send(`Bonne nuit a toi ${message.author.username} `) 
+	        var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
         }
-})
-
-client.on('message', function (message) {
-    if (message.content === '!Addons') {
-        message.channel.send(`Voici la collection du serveur https://steamcommunity.com/sharefiles/filedetails/?id=1127200618`) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === '!Grosmots') {
-        message.channel.send(`Avertisseur de gros mots = actif `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === '!VIP') {
-        message.channel.send(`Pour devenir vip il faut être abonné à la chaine de Zerpod https://www.youtube.com/channel/UCk0BIOYsSU2R1y01YyLfHGQ et mettre un like sur sa derniere video puis nous le prouver par screen sur le chat demande VIP`) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === '!serveur') {
-        message.channel.send('https://cache.gametracker.com/server_info/91.121.33.3:27050/b_560_95_1.png https://cache.gametracker.com/server_info/91.121.33.3:27050/b_160_400_1_ffffff_c5c5c5_ffffff_000000_0_1_0.png') 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === '!VIPpremium') {
-        message.channel.send(`//ARRIVE\\\\\\`) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Staff?') {
-        message.channel.send(`Voici les staff du serveur                      Fondateur: (EltixeRoleplay)LewanIngame              Superadmin: Killerkoas///lorcanocraft              admin: `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Liste music') {
-        message.channel.send('Commande de musique      - !add https://www.youtube.com/watch?v=f2xGxd9xPYA  (JJD - Adventure [NCS Release])') 
-        message.channel.send('                       - !add https://www.youtube.com/watch?v=bM7SZ5SBzyY  (Alan Walker - Fade [NCS Release])') 
-        message.channel.send('                       - !add https://www.youtube.com/watch?v=VtKbiyyVZks  (Itro & Tobu - Cloud 9 [NCS Release])') 
-        message.channel.send('                       - !add https://www.youtube.com/watch?v=__CRWE-L45k  (Electro-Light - Symbolism [NCS Release]) Marquer 1 et entrer') 
-
-    }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'liste musique') {
-        message.channel.send('Commande de musique      - !search https://www.youtube.com/watch?v=f2xGxd9xPYA  (JJD - Adventure [NCS Release])') 
-        message.channel.send('                       - !search https://www.youtube.com/watch?v=bM7SZ5SBzyY  (Alan Walker - Fade [NCS Release])') 
-        message.channel.send('                       - !search https://www.youtube.com/watch?v=VtKbiyyVZks  (Itro & Tobu - Cloud 9 [NCS Release])') 
-        message.channel.send('                       - !search https://www.youtube.com/watch?v=__CRWE-L45k  (Electro-Light - Symbolism [NCS Release]) Marquer 1 et entrer') 
-        message.channel.send('                       - Si une grande playliste se montre Marquer 1 et entrer dans le chat') 
-    }
 })
 
 client.on('message', message => {
@@ -519,12 +521,12 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', 'welcome');
     if (!channel) return;
-    channel.send(`:fries: :fries: :fries: Bienvenu sur le serveur EltixeRoleplay, ${member} :fries: :fries: :fries:`);
+    channel.send(`:fries: :fries: :fries: Bienvenu sur notre serveurdiscord, ${member} :fries: :fries: :fries:`);
 })
 
 client.on('message', message => {
     message.channel.sendEmbed(help_embed);
-    if (message.content === 'ehelp'){
+    if (message.content === 'e!help'){
             var help_embed = new Discord.RichEmbed()
                 .setColor('#FEFEFE')
                 .addField('Commandes du bot !', '   - help : Affiche les commandes du bot !')
@@ -539,7 +541,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    if (message.content == '!clear') {
+    if (message.content == 'e!clear') {
     if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
     message.channel.sendMessage("Désoler mais vous n' avez pas la permission de faire ceci");
     return;
