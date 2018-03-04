@@ -160,130 +160,124 @@ client.on('ready', function () {
     client.user.setActivity('EltixeRoleplay').catch(console.error)
 })
 
-client.on('message', function (message) {
-    if (message.content === 'Bonjour') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
+client.on('message', message => {
+     var array_msg = message.content.split(' ');
+             messages.push(message);
+             switch (array_msg[0]) {
+         case ("merde") :
+             message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+             message.delete(message.author);
     }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'bonjour') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+        case ("Merde") :
+        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+         message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'bj') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+    client.on('message', message => {
+        var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+        case ("fdp") :
+        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'BJ') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+client.on('message', message => {
+        var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+    case ("Merde") :
+        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.delete(message.author);
+    }
 })
 
-
-client.on('message', function (message) {
-    if (message.content === 'cc') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+client.on('message', message => {
+        var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+    case ("fils de pute") :
+        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'CC') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+client.on('message', message => {
+        var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+    case ("Fils de pute") :
+        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'Salut') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+client.on('message', message => {
+        var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+    case ("FILS DE PUTE") :
+        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'salut') {
-        message.channel.send(`Bonjour à toi ${message.author.username}`) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("Enculler") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'merde') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("enculler") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'Merde') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("Nique ta mère") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'fdp') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("nique ta mère") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'FDP') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'fils de pute') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Fils de pute') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Enculler') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'enculler') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Nique ta mère') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'nique ta mère') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'nike ta mère') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("nike ta mère") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
 client.on('message', function (message) {
@@ -292,131 +286,124 @@ client.on('message', function (message) {
         }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'Nike ta mère') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("Nike ta mère") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'Grosse pute') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author.username} :triumph: :loudspeaker:  `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("Grosse pute") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'vntm') {
-	message.delete(message.author);
-        message.channel.send(` :red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("vntm") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'VNTM') {
-	message.delete(message.author);
-        message.channel.send(` :red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("VNTM") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'pd') {
-	message.delete(message.author);
-        message.channel.send(`:red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("pd") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'PD') {
-	message.delete(message.author);
-        message.channel.send(`:red_circle:  :triumph: PAS DE CES MOTS ${message.author.username} :triumph: :red_circle: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("PD") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'con') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker:`) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("con") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'connard') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("CON") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'tg')
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `)
-        }
-)
-
-client.on('message', function (message) {
-    if (message.content === 'ftg') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("connard") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'con') {
-	message.delete(message.author);
-        message.channel.send(` :loudspeaker: :triumph: PAS DE GROS MOTS ${message.author.username} :triumph: :loudspeaker: `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("tg") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'caca') {
-        message.channel.send(`Tu aime vraiment sa ${message.author.username}  https://www.youtube.com/watch?v=zm0xLiy6aqs ?`) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("ftg") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
-client.on('message', function (message) {
-    if (message.content === 'bite') {
-	message.delete(message.author);
-        message.channel.send(`:triumph: PAS DE SES MOTS ${message.author.username} :triumph:`) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'chatte') {
-	message.delete(message.author);
-        message.channel.send(`:triumph: PAS DE SES MOTS ${message.author.username} :triumph:`) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Bonne nuit') {
-        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'Bn') {
-        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'bn') {
-        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'BN') {
-        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
-        }
-})
-
-client.on('message', function (message) {
-    if (message.content === 'bN') {
-        message.channel.send(`Bonne nuit à toi ${message.author.username} `) 
-        }
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("chatte") :
+    message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+    message.delete(message.author);
+    }
 })
 
 client.on('message', message => {
@@ -440,7 +427,7 @@ client.on('message', message => {
                 .setThumbnail('https://dvcac.org/sites/default/files/internet%20help.jpg')
                 .addField('*', '!')
                 .addField('*', '!')
-                .addField('*', 'os.uptime()')
+                .addField('*', '!')
                 .addField('Musique', "-'!add' le nom de la musique ou le lien.                                                                   -'!play' le bot rejoin et joue sur votre channel.                                                                       -'!volume' change le volume entre 0 et 100.                                                                       -'!stop' Arrète la musique")
                 .setFooter('By LewanIngame')
             message.channel.sendEmbed(help_embed);
