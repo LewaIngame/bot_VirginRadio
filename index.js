@@ -147,12 +147,7 @@ else if (message.content.startsWith("!météo")){
         console.log(Date.now(), "ERREUR", "Weather.JS a rencontré une erreur");
         message.reply("Idk pourquoi c'est cassé tbh :(");
         }
-    }
-	
-} else if (message.content.startsWith('!youtube')){
-youtube_plugin.respond(message.content, message.channel , client);
-}
-})
+});
 
 app.get('/playlist', function (req, res) {
     var json = JSON.stringify(music.tab);
