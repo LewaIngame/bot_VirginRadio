@@ -6,7 +6,7 @@ client.login("NDE4MTUzOTY3OTE1MzY4NDQ4.DXdbwQ.irnHoN4v1H-wJtKGFXM54q_eSHU");
 const Wiki = require("wikijs");
 const express = require("express");
 const os = require('os')
-var os = require('os')
+var os = os();
 var app = express();
 var AuthDetails = require("./auth.json");
 var RedisSessions = require("redis-sessions");
