@@ -5,6 +5,8 @@ const weather = require("weather-js");
 client.login("NDE4MTUzOTY3OTE1MzY4NDQ4.DXdbwQ.irnHoN4v1H-wJtKGFXM54q_eSHU");
 const Wiki = require("wikijs");
 const express = require("express");
+const os = require('os')
+var os = require('os')
 var app = express();
 var AuthDetails = require("./auth.json");
 var RedisSessions = require("redis-sessions");
@@ -439,7 +441,7 @@ client.on('message', message => {
                 .setThumbnail('https://dvcac.org/sites/default/files/internet%20help.jpg')
                 .addField('*', '!')
                 .addField('*', '!')
-                .addField('*', '!')
+                .addField('*', 'os.uptime()')
                 .addField('Musique', "-'!add' le nom de la musique ou le lien.                                                                   -'!play' le bot rejoin et joue sur votre channel.                                                                       -'!volume' change le volume entre 0 et 100.                                                                       -'!stop' Arrète la musique")
                 .setFooter('By LewanIngame')
             message.channel.sendEmbed(help_embed);
