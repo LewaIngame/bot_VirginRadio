@@ -157,7 +157,7 @@ app.get('/playlist', function (req, res) {
 });
 
 client.on('ready', function () {
-    client.user.setActivity('EltixeRoleplay').catch(console.error)
+    client.user.setActivity('EltixeRoleplay et OliakeCraft').catch(console.error)
 })
 
 client.on('message', message => {
