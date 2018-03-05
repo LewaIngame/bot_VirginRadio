@@ -35,88 +35,70 @@ client.on("ready", () => {
 })
 
 var messages = [];
-client.on('message', message => {
-   music.setVoiceChannel(message.member.voiceChannel);
-    var array_msg = message.content.split(' ');
-            messages.push(message);
-            switch (array_msg[0]) {
-        case ("eplay") :
-            console.log("Play");
-            message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
-            if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
-            if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
-            else music.voice();
-            }
-            break;
-        case ("epause") :
-            console.log("Pause");
-            message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
-            if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
-            if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
-            music.pause();
-            }
-            break;
-        case ("eresume") :
-            console.log("Resume");
-            message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
-            if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
-            if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
-            music.resume();
-            }
-            break;
-        case ("estop") :
-            console.log("Stop");
-            message.delete(message.author);
-            if (!message.member.roles.find('name', 'DJ')) {
-            if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
-            if (music.getTab(0) == null) return message.reply('Aucune musique');
-            else music.stop();
-            message.reply("La queue à été vidé !");
-            }
-            break;
-        case ("eadd") :
-            console.log("Add");
-			message.delete(message.author);
-            var link = message.content.split(' ');
-            link.shift();
-            link = link.join(' ');
-            search(link, opts, function(err, results) {
-                if (!message.member.roles.find('name', 'DJ')) {
-                if(err) return console.log(err);
-                for (var y = 0; results[y].kind == 'youtube#channel'; y++);
-                message.channel.sendMessage(results[y].link);
-                music.setTabEnd(results[y].link);
-                }
-            })
-            break;
-        case ("elink") :
-            console.log("Link");
-            message.delete(message.author);
-            var link = message.content.split(' ');
-            link.shift();
-            link = link.join(' ');
-            console.log(link);
-            music.setTabEnd(link);
-            break;
-        case ("evolume") :
-            console.log("Volume");
-            message.delete(message.author);
-            var link = message.content.split(' ');
-            link.shift();
-            link = link.join(' ');
-            music.volume(link/100);
-            message.reply("le volume et maintenant à :" + link);
-            break;
-        case ("e!next") :
-        console.log("Next");
-        message.delete(message.author);
-        if (music.getI() < music.getLengthTab()) music.setI(this.i + 1);
-        if (music.getI() >= music.getLengthTab()) music.setI(0);
-        music.next();
-    break;
+bot.on('message', message => {
+    music.setVoiceChannel(message.member.voiceChannel);
+       var array_msg = message.content.split(' ');
+              messages.push(message);
+              switch (array_msg[0]) {
+            case ("eplay") :
+                console.log("Play");
+                if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
+                if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
+               else music.voice();
+                break;
+            case ("epause") :
+                console.log("Pause");
+                message.delete(message.author);
+                if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
+                if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
+                music.pause();
+                break;
+            case ("eresume") :
+                console.log("Resume");
+                message.delete(message.author);
+                if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
+                if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
+                music.resume();
+                break;
+            case ("estop") :
+                console.log("Stop");
+                message.delete(message.author);
+                if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
+                if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
+                else music.stop();
+                message.reply("La queue à été vidé !");
+                break;
+            case ("eadd") :
+                console.log("Add");
+                message.delete(message.author);
+                var link = message.content.split(' ');
+                link.shift();
+                link = link.join(' ');
+                search(link, opts, function(err, results) {
+                    if(err) return console.log(err);
+                    for (var y = 0; results[y].kind == 'youtube#channel'; y++);
+                    message.channel.sendMessage(results[y].link);
+                    music.setTabEnd(results[y].link);
+                });
+                break;
+            case ("elink") :
+                console.log("Link");
+                message.delete(message.author);
+                var link = message.content.split(' ');
+                link.shift();
+                link = link.join(' ');
+                console.log(link);
+                music.setTabEnd(link);
+                break;
+            case ("evolume") :
+                console.log("Volume");
+                message.delete(message.author);
+                var link = message.content.split(' ');
+                link.shift();
+                link = link.join(' ');
+                music.volume(link/100);
+                message.reply("le volume et maintenant à :" + link);
+                break;
 }
     
     if (message.content === ("!channel")){
