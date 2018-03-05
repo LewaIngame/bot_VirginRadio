@@ -35,7 +35,7 @@ client.on("ready", () => {
 })
 
 var messages = [];
-bot.on('message', message => {
+client.on('message', message => {
     music.setVoiceChannel(message.member.voiceChannel);
        var array_msg = message.content.split(' ');
               messages.push(message);
