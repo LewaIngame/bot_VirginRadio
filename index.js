@@ -40,7 +40,7 @@ client.on('message', message => {
     var array_msg = message.content.split(' ');
             messages.push(message);
             switch (array_msg[0]) {
-        case ("!play") :
+        case ("eplay") :
             console.log("Play");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -49,7 +49,7 @@ client.on('message', message => {
             else music.voice();
             }
             break;
-        case ("!pause") :
+        case ("epause") :
             console.log("Pause");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -58,7 +58,7 @@ client.on('message', message => {
             music.pause();
             }
             break;
-        case ("!resume") :
+        case ("eresume") :
             console.log("Resume");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -67,7 +67,7 @@ client.on('message', message => {
             music.resume();
             }
             break;
-        case ("!stop") :
+        case ("estop") :
             console.log("Stop");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -77,7 +77,7 @@ client.on('message', message => {
             message.reply("La queue à été vidé !");
             }
             break;
-        case ("!add") :
+        case ("eadd") :
             console.log("Add");
 			message.delete(message.author);
             var link = message.content.split(' ');
@@ -92,7 +92,7 @@ client.on('message', message => {
                 }
             })
             break;
-        case ("e!link") :
+        case ("elink") :
             console.log("Link");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -101,7 +101,7 @@ client.on('message', message => {
             console.log(link);
             music.setTabEnd(link);
             break;
-        case ("e!volume") :
+        case ("evolume") :
             console.log("Volume");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -420,7 +420,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
     message.channel.sendEmbed(help_embed);
-    if (message.content === 'e!help'){
+    if (message.content === 'ehelp'){
             var help_embed = new Discord.RichEmbed()
                 .setColor('#FEFEFE')
                 .addField('Commandes du bot !', '   - help : Affiche les commandes du bot !')
@@ -435,7 +435,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    if (message.content == 'e!clear') {
+    if (message.content == 'eclear') {
     if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
     message.channel.sendMessage("Désoler mais vous n' avez pas la permission de faire ceci");
     return;
