@@ -184,6 +184,9 @@ client.on("message", async (message) => {
 		.setDescription(message.author.username + " says: " + args.join(" "));
 		message.channel.send({embed})
 } else
+		}
+
+});
 
 client.on('message', message => {
     var array_msg = message.content.split(' ');
