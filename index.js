@@ -183,8 +183,7 @@ client.on("message", async (message) => {
 		.setColor(0x954D23)
 		.setDescription(message.author.username + " says: " + args.join(" "));
 		message.channel.send({embed})
-		}
-
+    }
 });
 
 client.on('message', message => {
