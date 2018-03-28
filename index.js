@@ -180,7 +180,7 @@ client.on('message', function (message) {
     }
 })
 
-    client.on('message', message => {
+        client.on('message', message => {
         var array_msg = message.content.split(' ');
         messages.push(message);
         switch (array_msg[0]) {
