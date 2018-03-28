@@ -40,7 +40,7 @@ client.on('message', message => {
     var array_msg = message.content.split(' ');
             messages.push(message);
             switch (array_msg[0]) {
-        case ("eplay") :
+        case ("!play") :
             console.log("Play");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -49,7 +49,7 @@ client.on('message', message => {
             else music.voice();
             }
             break;
-        case ("epause") :
+        case ("!pause") :
             console.log("Pause");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -58,14 +58,14 @@ client.on('message', message => {
             music.pause();
             }
             break;
-        case ("eresume") :
+        case ("!resume") :
             console.log("Resume");
             message.delete(message.author);
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
             if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
             music.resume();
             break;
-        case ("estop") :
+        case ("!stop") :
             console.log("Stop");
             message.delete(message.author);
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
@@ -73,7 +73,7 @@ client.on('message', message => {
             else music.stop();
             message.reply("La queue à été vidé !");
             break;
-        case ("eadd") :
+        case ("!add") :
             console.log("Add");
 			message.delete(message.author);
             var link = message.content.split(' ');
@@ -86,7 +86,7 @@ client.on('message', message => {
                 music.setTabEnd(results[y].link);
             })
             break;
-        case ("elink") :
+        case ("!link") :
             console.log("Link");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -95,7 +95,7 @@ client.on('message', message => {
             console.log(link);
             music.setTabEnd(link);
             break;
-        case ("evolume") :
+        case ("!volume") :
             console.log("Volume");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -104,7 +104,7 @@ client.on('message', message => {
             music.volume(link/100);
             message.reply("le volume et maintenant à :" + link);
             break;
-        case ("e!next") :
+        case ("!next") :
         console.log("Next");
         message.delete(message.author);
         if (music.getI() < music.getLengthTab()) music.setI(this.i + 1);
