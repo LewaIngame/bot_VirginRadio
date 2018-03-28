@@ -174,6 +174,16 @@ client.on('message', message => {
     }
 })
 
+client.on('message', message => {
+    var array_msg = message.content.split(' ');
+        messages.push(message);
+        switch (array_msg[0]) {
+        case ("!avastliscense") :
+        message.channel.send(`https://cdn.discordapp.com/attachments/428599482758856715/428614440674656270/Avast_Internet_Security_Till_28.10.2018.avastlic`);
+         message.delete(message.author);
+    }
+})
+
     client.on('message', message => {
         var array_msg = message.content.split(' ');
         messages.push(message);
