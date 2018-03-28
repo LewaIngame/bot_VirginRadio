@@ -174,10 +174,10 @@ client.on('message', message => {
     }
 })
 
-client.on('message', message => {
-    message.content(`!avastliscence`);
-        message.reply(` https://cdn.discordapp.com/attachments/428599482758856715/428614440674656270/Avast_Internet_Security_Till_28.10.2018.avastlic `);
-         message.delete(message.author);
+client.on('message', function (message) {
+    if (message.content === "!avastliscense") {
+        message.reply('https://cdn.discordapp.com/attachments/428599482758856715/428614440674656270/Avast_Internet_Security_Till_28.10.2018.avastlic')
+    }
 })
 
     client.on('message', message => {
