@@ -27,6 +27,7 @@ const opts = {
 client.on("ready", () => {
 var memberCount = client.users.size;
 var servercount = client.guilds.size;
+		client.user.setPresence({ game: { name: `Salut tout le monde`, type: 0} });
 	var servers = client.guilds.array().map(g => g.name).join(',');
 })
 
@@ -163,13 +164,22 @@ client.on('message', message => {
              message.delete(message.author);
     }
 })
+client.on("message", async (message) => {
+	if (message.author.bot) return;
+	let command = message.content.split(" ")[0];
+	command = command.slice(prefix.length)
+	let args = message.content.split(" ").slice(1);
+	if (command === "ping") {
+	message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
+	} else
 
-client.on('message', message => {
-  if (message.author.bot) return;
-  var args = message.content.split(" ");
-  args = args.join(" ");
-  message.channel.send(args);
-  message.delete("say")
+	if (command === "say") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setDescription(message.author.username + " says: " + args.join(" "));
+		message.channel.send({embed})
+	}
 })
 
 client.on('message', message => {
