@@ -164,24 +164,39 @@ client.on('message', message => {
              message.delete(message.author);
     }
 })
+
 client.on("message", async (message) => {
 	if (message.author.bot) return;
 	let command = message.content.split(" ")[0];
 	command = command.slice(prefix.length)
 	let args = message.content.split(" ").slice(1);
 	if (command === "ping") {
-	message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
+	message.channel.send(`Pong! Le temps pris: ${Date.now() - message.createdTimestamp} ms`);
 	} else
 
 	if (command === "say") {
 		message.delete()
         const embed = new Discord.RichEmbed()
 		.setColor(0x954D23)
-		.setDescription(message.author.username + " says: " + args.join(" "));
+		.setDescription(args.join(" "));
 		message.channel.send({embed})
 	}
 })
 
+client.on("message", async (message) => {
+	if (command == "help") {
+		const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setTitle("Command List:")
+		.addField("!add", "<lenomdunemusiqueoulelien>")
+		.addField("!play", "Fait venir le bot dans votre channel et joue la musique")
+		.addField("!stop", "Arrête la musique et fait partir le bot du channel")
+		.addField("e!clear", "Pour clear mais il faut la permission")
+		.addField("!avastliscence", "Vous donne un lien de clef avast premium gratuit");
+		message.channel.send({embed})
+	}
+
+});
 client.on('message', message => {
     var array_msg = message.content.split(' ');
         messages.push(message);
@@ -434,22 +449,6 @@ client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', 'welcome');
     if (!channel) return;
     channel.send(`:fries: :fries: :fries: Bienvenu sur notre serveurdiscord, ${member} :fries: :fries: :fries:`);
-})
-
-client.on('message', message => {
-    message.channel.sendEmbed(help_embed);
-    if (message.content === 'e!help'){
-            var help_embed = new Discord.RichEmbed()
-                .setColor('#FEFEFE')
-                .addField('Commandes du bot !', '   - help : Affiche les commandes du bot !')
-                .setThumbnail('https://dvcac.org/sites/default/files/internet%20help.jpg')
-                .addField('*', '!')
-                .addField('*', '!')
-                .addField('*', '!')
-                .addField('Musique', "-'!add' le nom de la musique ou le lien.                                                                   -'!play' le bot rejoin et joue sur votre channel.                                                                       -'!volume' change le volume entre 0 et 100.                                                                       -'!stop' Arrète la musique")
-                .setFooter('By LewanIngame')
-            message.channel.sendEmbed(help_embed);
-        }
 })
 
 client.on('message', message => {
