@@ -167,7 +167,6 @@ client.on('message', message => {
 client.on('message', message => {
   if (message.author.bot) return;
   var args = message.content.split(" ");
-  args.splice(0, 1);
   args = args.join(" ");
   message.channel.send(args);
   message.delete("say")
