@@ -164,34 +164,21 @@ client.on('message', message => {
     }
 })
 
-client.on("message", async (message) => {
-	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-	
-	let command = message.content.split(" ")[0];
-	command = command.slice(prefix.length);
-	
-	let args = message.content.split(" ").slice(1);
-	
-	if (command === "ping") {
-		message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
-	} else
-
-	if (command === "say") {
-		message.delete()
-        const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setDescription(message.author.username + " says: " + args.join(" "));
-		message.channel.send({embed})
-    }
-});
+client.on('message', message => {
+  if (message.author.bot) return;
+  var args = message.content.split(" ");
+  args.splice(0, 1);
+  args = args.join(" ");
+  message.channel.send(args);
+  message.delete("say")
+})
 
 client.on('message', message => {
     var array_msg = message.content.split(' ');
         messages.push(message);
         switch (array_msg[0]) {
         case ("Merde") :
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.channel.send(` :loudspeaker: :triumph: TON LAGAGE ${message.author} :triumph: :loudspeaker:  `);
          message.delete(message.author);
     }
 })
@@ -207,7 +194,7 @@ client.on('message', function (message) {
         messages.push(message);
         switch (array_msg[0]) {
         case ("fdp") :
-        message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
+        message.channel.send(` :loudspeaker: :triumph: TON LAGAGE ${message.author} :triumph: :loudspeaker:  `);
         message.delete(message.author);
     }
 })
@@ -442,7 +429,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
     message.channel.sendEmbed(help_embed);
-    if (message.content === 'ehelp'){
+    if (message.content === 'e!help'){
             var help_embed = new Discord.RichEmbed()
                 .setColor('#FEFEFE')
                 .addField('Commandes du bot !', '   - help : Affiche les commandes du bot !')
@@ -457,7 +444,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    if (message.content == 'eclear') {
+    if (message.content == 'e!clear') {
     if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
     message.channel.sendMessage("Désoler mais vous n' avez pas la permission de faire ceci");
     return;
