@@ -166,12 +166,12 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-  if (msg.author.bot) return;
-  var args = msg.content.split(" ");
+  if (message.author.bot) return;
+  var args = message.content.split(" ");
   args.splice(0, 1);
   args = args.join(" ");
-  msg.channel.send(args+"\nRequête de "+msg.author+".");
-  msg.delete(prefix+"say")
+  message.channel.send(args);
+  message.delete(prefix+"say")
 })
 
 client.on('message', message => {
