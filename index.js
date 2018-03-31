@@ -166,16 +166,6 @@ client.on('message', message => {
 })
 
 client.on("message", async (message) => {
-	if (message.author.bot) return;
-	let command = message.content.split(" ")[0];
-	command = command.slice(prefix.length)
-	let args = message.content.split(" ").slice(1);
-	if (command === "ping") {
-	message.channel.send(`Pong! Le temps pris: ${Date.now() - message.createdTimestamp} ms`);
-	}
-})
-
-client.on("message", async (message) => {
 	if (command == "help") {
 		const embed = new Discord.RichEmbed()
 		.setColor(0x954D23)
