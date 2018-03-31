@@ -172,14 +172,6 @@ client.on("message", async (message) => {
 	let args = message.content.split(" ").slice(1);
 	if (command === "ping") {
 	message.channel.send(`Pong! Le temps pris: ${Date.now() - message.createdTimestamp} ms`);
-	} else
-
-	if (command === "say") {
-		message.delete()
-        const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setDescription(args.join(" "));
-		message.channel.send({embed})
 	}
 })
 
