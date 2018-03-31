@@ -174,20 +174,6 @@ client.on('message', message => {
   msg.delete(prefix+"say")
 })
 
-client.on("message", async (message) => {
-	if (command == "help") {
-		const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setTitle("Command List:")
-		.addField("!add", "<lenomdunemusiqueoulelien>")
-		.addField("!play", "Fait venir le bot dans votre channel et joue la musique")
-		.addField("!stop", "Arrête la musique et fait partir le bot du channel")
-		.addField("e!clear", "Pour clear mais il faut la permission")
-		.addField("!avastliscence", "Vous donne un lien de clef avast premium gratuit");
-		message.channel.send({embed})
-	}
-
-});
 client.on('message', message => {
     var array_msg = message.content.split(' ');
         messages.push(message);
