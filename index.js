@@ -33,7 +33,7 @@ var servercount = client.guilds.size;
 })
 
 client.on("ready", () => {
-    console.log("BOT_ELTIXE actif");
+    console.log("BOT actif");
 })
 
 var messages = [];
@@ -417,7 +417,7 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', 'welcome');
     if (!channel) return;
-    channel.send(`:fries: :fries: :fries: Bienvenu sur notre serveurdiscord, ${member} :fries: :fries: :fries:`);
+    channel.send(`Bienvenue sur notre serveur discord, ${member}`);
 })
 
 client.on('message', message => {
