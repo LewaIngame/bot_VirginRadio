@@ -3,7 +3,7 @@ const help_embed = new Discord.RichEmbed()
 const client = new Discord.Client();
 const EventEmitter = require('events').EventEmitter;
 const weather = require("weather-js");
-client.login("NDE4MTUzOTY3OTE1MzY4NDQ4.DXdbwQ.irnHoN4v1H-wJtKGFXM54q_eSHU");
+client.login("NDM2ODczMjM3MzI3MTE4MzQ2.Dbt1cA.diaKrQuFq3dZ6D3Ah6PeGQUqBJk");
 const Wiki = require("wikijs");
 const express = require("express");
 const os = require('os')
