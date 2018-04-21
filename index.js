@@ -417,8 +417,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === 'Vip') {
-      message.channel.send(`https://eltixeroleplay.fr/index.php?account/upgrades
-https://cdn.discordapp.com/attachments/437284917114830850/437285216890126338/unknown.png`);
+      message.channel.send(`https://eltixeroleplay.fr/index.php?account/upgrades https://cdn.discordapp.com/attachments/437284917114830850/437285216890126338/unknown.png`);
     }
 })
 
