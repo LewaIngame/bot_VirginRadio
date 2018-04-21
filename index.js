@@ -421,8 +421,7 @@ client.on('message', message => {
 https://cdn.discordapp.com/attachments/437284917114830850/437285216890126338/unknown.png`);
     }
 })
-https://eltixeroleplay.fr/index.php?account/upgrades
-https://cdn.discordapp.com/attachments/437284917114830850/437285216890126338/unknown.png
+
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', 'welcome');
     if (!channel) return;
