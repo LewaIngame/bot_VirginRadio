@@ -32,6 +32,14 @@ var servercount = client.guilds.size;
 	var servers = client.guilds.array().map(g => g.name).join(',');
 })
 
+client.on('message', function() {
+    if (message.content === "$loop") { 
+      var interval = setInterval (function () {
+        bot.sendMessage(message.channel, "123")
+      }, 1 * 1000); 
+    }
+});
+
 client.on("ready", () => {
     console.log("BOT actif");
 })
