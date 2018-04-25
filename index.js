@@ -32,14 +32,6 @@ var servercount = client.guilds.size;
 	var servers = client.guilds.array().map(g => g.name).join(',');
 })
 
-client.on('message', function() {
-    if (message.content === "$loop") { 
-      var interval = setInterval (function () {
-        bot.sendMessage(message.channel, "123")
-      }, 1 * 1000); 
-    }
-});
-
 client.on("ready", () => {
     console.log("BOT actif");
 })
@@ -417,6 +409,16 @@ case ("chatte") :
 })
 
 client.on('message', message => {
+    var array_msg = message.content.split(' ');
+    messages.push(message);
+    switch (array_msg[0]) {
+case ("e!ditluitageule") :
+    message.channel.send(`TA GEULE PUTAIN`);
+    message.delete(message.author);
+    }
+})
+
+client.on('message', message => {
     if (message.content === 'Avatar') {
       message.channel.send(message.author.avatarURL);
     }
@@ -457,5 +459,6 @@ client.on('message', message => {
         }
     }
 });
+
 
 app.listen(AuthDetails.port);
