@@ -39,9 +39,9 @@ client.on("ready", () => {
 var messages = [];
 client.on('message', message => {
    music.setVoiceChannel(message.member.voiceChannel);
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
             messages.push(message);
-            switch (array_msg[0]) {
+            switch (array_message[0]) {
         case (prefix + "play") :
             console.log("Play");
             message.delete(message.author);
@@ -157,9 +157,9 @@ client.on('ready', function () {
 })
 
 client.on('message', message => {
-     var array_msg = message.content.split(' ');
+     var array_message = message.content.split(' ');
              messages.push(message);
-             switch (array_msg[0]) {
+             switch (array_message[0]) {
          case ("merde") :
              message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
              message.delete(message.author);
@@ -167,9 +167,9 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
         messages.push(message);
-        switch (array_msg[0]) {
+        switch (array_message[0]) {
         case ("Merde") :
         message.channel.send(` :loudspeaker: :triumph: TON LAGAGE ${message.author} :triumph: :loudspeaker:  `);
          message.delete(message.author);
@@ -183,9 +183,9 @@ client.on('message', function (message) {
 })
 
         client.on('message', message => {
-        var array_msg = message.content.split(' ');
+        var array_message = message.content.split(' ');
         messages.push(message);
-        switch (array_msg[0]) {
+        switch (array_message[0]) {
         case ("fdp") :
         message.channel.send(` :loudspeaker: :triumph: TON LAGAGE ${message.author} :triumph: :loudspeaker:  `);
         message.delete(message.author);
@@ -193,9 +193,9 @@ client.on('message', function (message) {
 })
 
 client.on('message', message => {
-        var array_msg = message.content.split(' ');
+        var array_message = message.content.split(' ');
         messages.push(message);
-        switch (array_msg[0]) {
+        switch (array_message[0]) {
     case ("Merde") :
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
         message.delete(message.author);
@@ -203,9 +203,9 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-        var array_msg = message.content.split(' ');
+        var array_message = message.content.split(' ');
         messages.push(message);
-        switch (array_msg[0]) {
+        switch (array_message[0]) {
     case ("fils de pute") :
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
         message.delete(message.author);
@@ -213,9 +213,9 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-        var array_msg = message.content.split(' ');
+        var array_message = message.content.split(' ');
         messages.push(message);
-        switch (array_msg[0]) {
+        switch (array_message[0]) {
     case ("Fils de pute") :
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
         message.delete(message.author);
@@ -223,9 +223,9 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-        var array_msg = message.content.split(' ');
+        var array_message = message.content.split(' ');
         messages.push(message);
-        switch (array_msg[0]) {
+        switch (array_message[0]) {
     case ("FILS DE PUTE") :
         message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
         message.delete(message.author);
@@ -233,9 +233,9 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("Enculler") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -243,9 +243,9 @@ case ("Enculler") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("enculler") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -253,9 +253,9 @@ case ("enculler") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("Nique ta mère") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -263,9 +263,9 @@ case ("Nique ta mère") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("nique ta mère") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -273,9 +273,9 @@ case ("nique ta mère") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("nike ta mère") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -289,9 +289,9 @@ client.on('message', function (message) {
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("Nike ta mère") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -299,9 +299,9 @@ case ("Nike ta mère") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("Grosse pute") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -309,9 +309,9 @@ case ("Grosse pute") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("vntm") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -319,9 +319,9 @@ case ("vntm") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("VNTM") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -329,9 +329,9 @@ case ("VNTM") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("pd") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -339,9 +339,9 @@ case ("pd") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("PD") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -349,9 +349,9 @@ case ("PD") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("con") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -359,9 +359,9 @@ case ("con") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("CON") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -369,9 +369,9 @@ case ("CON") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("connard") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -379,9 +379,9 @@ case ("connard") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("tg") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -389,9 +389,9 @@ case ("tg") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("ftg") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -399,9 +399,9 @@ case ("ftg") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
+    var array_message = message.content.split(' ');
     messages.push(message);
-    switch (array_msg[0]) {
+    switch (array_message[0]) {
 case ("chatte") :
     message.channel.send(` :loudspeaker: :triumph: TON LAGUAGE ${message.author} :triumph: :loudspeaker:  `);
     message.delete(message.author);
@@ -415,13 +415,13 @@ client.on('message', message => {
 })
 
 client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.find('name', 'welcome');
+    const channel = member.guild.channels.find('name', 'join_leave');
     if (!channel) return;
     channel.send(`Bienvenue sur notre serveur discord, ${message.author.username}`);
 })
 
 client.on('guildMemberRemove', member => {
-    member.guild.channels.find('name', 'welcome');
+    member.guild.channels.find('name', 'join_leave');
     if (!channel) return;
     channel.send(`A quiter notre serveur discord, ${message.author}`);
 })
@@ -435,5 +435,35 @@ client.on('message', message => {
    message.channel.send(avatar_embed)
     };
 });
+
+if (message.content === prefix + "ban") {
+    if(!message.member.hasPermission("BAN_MEMBERS")) {
+      message.channel.sendMessage(":no_entry_sign: TU NA PAS ACCES:no_entry_sign:")
+      return;
+    }
+    let userToBan = message.mentions.users.first()
+    try {
+      message.guild.member(userToBan).ban()
+    } catch(err) {
+      message.channel.sendMessage(+message.author.user.username+"#"+message.author.user.discriminator+",  :x: :x: :x: l'utilisateur n'a pas pu être trouvé:x: :x: :x: ")
+      return;
+    }
+    message.channel.sendMessage(+userToBan.username+"#"+userToBan.discriminator+" à été banni du serveur:white_check_mark: :white_check_mark: !")
+
+  }
+  if (message.content === prefix + "kick") {
+    if (!message.member.hasPermission("KICK_MEMBERS")) {
+      message.channel.sendMessage(":no_entry_sign: TU NA PAS ACCES:no_entry_sign:")
+      return;
+    }
+    let userToKick = message.mentions.users.first()
+    try {
+      message.guild.member(userToKick).kick()
+    } catch(err){
+      message.channel.sendMessage(+message.author.user.username+"#"+message.author.user.discriminator+", :x: :x: :x: l'utilisateur n'a pas pu être trouvé:x: :x: :x: ")
+      return;
+    }
+    message.channel.sendMessage(+userToBan.username+"#"+userToBan.discriminator+" à été kick du serveur:white_check_mark: :white_check_mark: !")
+}
 
 app.listen(AuthDetails.port);
