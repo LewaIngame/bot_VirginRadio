@@ -435,8 +435,9 @@ client.on('message', message => {
    message.channel.send(avatar_embed)
     };
 });
-
-if (message.content === prefix + "ban") {
+client.on('message', message => {
+let command = message.content.split(" ")[0];
+if (command === prefix + "ban") {
     if(!message.member.hasPermission("BAN_MEMBERS")) {
       message.channel.sendMessage(":no_entry_sign: TU NA PAS ACCES:no_entry_sign:")
       return;
@@ -451,7 +452,7 @@ if (message.content === prefix + "ban") {
     message.channel.sendMessage(+userToBan.username+"#"+userToBan.discriminator+" à été banni du serveur:white_check_mark: :white_check_mark: !")
 
   }
-  if (message.content === prefix + "kick") {
+  if (command === prefix + "kick") {
     if (!message.member.hasPermission("KICK_MEMBERS")) {
       message.channel.sendMessage(":no_entry_sign: TU NA PAS ACCES:no_entry_sign:")
       return;
