@@ -19,7 +19,7 @@ client.on('message', message => {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
   let args = message.content.split(" ").slice(1);
-  if (command === "ping") {
+  if (command === prefix + "ping") {
     startTime = Date.now();
   message.channel.sendMessage("Calcul en cours...").then((message) => {
     endTime = Date.now();
@@ -166,75 +166,6 @@ client.on("message", message => {
             message.channel.sendEmbed(embed)
         }
 
-        if (command === "stats") {
-            const game = client.user.presence.game || {};
-            const embed = new Discord.RichEmbed()
-                .setTitle('Anime Radio Club')
-                .setAuthor('Felix#1330', 'https://scontent.fper1-1.fna.fbcdn.net/v/t1.0-9/18664210_1417816568256757_8140624121121409774_n.jpg?oh=e673a8d56882b92983c7bf7a3eb408e6&oe=5AA4AAA9')
-                .setColor(3447003)
-                .addField(':baby: Users', `${client.guilds.reduce((mem, g) => mem += g.memberCount, 0)}`, true)
-                .addField(':desktop: Servers', `${client.guilds.size.toLocaleString()}`, true)
-                .addField(':thinking: RAM usage', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
-                .addField(':floppy_disk: Version', version, true)
-                .addField(`:musical_note:  Listeners:`, `${listeners}`, true)
-                .addField(':video_game: Game', `${game.name || 'None'} ${game.streaming ? `[(Streaming)](${game.url})` : ''}`, true)
-                .setThumbnail(client.user.avatarURL)
-
-            message.channel.sendEmbed(embed)
-        }
-
-        if (command === "report") {
-            if (!args.slice(1).join(" ")) {
-                const embed = new Discord.RichEmbed()
-                    .setColor("#ff0000")
-                    .addField('Empty message!', "You must input a message to report! You cannot leave it blank.")
-
-                message.channel.sendEmbed(embed)
-                return
-            }
-            const embed = new Discord.RichEmbed()
-                .setColor("#68ca55")
-                .addField('Report sent!', "We will look into it!")
-
-            message.channel.sendEmbed(embed);
-            const embed1 = new Discord.RichEmbed()
-                .setTimestamp()
-                .setColor("#000000")
-                .addField('New Report!', `${message.author.username}#${message.author.discriminator} has sent in a report!`)
-                .addField('Report:', `${args.slice(1).join(" ")}`)
-                .addField('Server:', `${message.guild.name} (${message.guild.id})`)
-                .setThumbnail(client.user.avatarURL)
-
-            client.channels.find("id", `397704312815484938`).sendEmbed(embed1)
-            return
-        }
-
-        if (command === "suggest") {
-            if (!reason1) {
-                const embed = new Discord.RichEmbed()
-                    .setColor("#ff0000")
-                    .addField('Empty message!', "You must input a suggestion! You cannot leave it blank.")
-
-                message.channel.sendEmbed(embed)
-                return
-            }
-            const embed = new Discord.RichEmbed()
-                .setColor("#68ca55")
-                .addField('Suggestion sent!', "Thank you for your feedback.")
-
-            message.channel.sendEmbed(embed);
-            const embed1 = new Discord.RichEmbed()
-                .setTimestamp()
-                .setColor(3447003)
-                .addField('New Feedback!', `${message.author.username}#${message.author.discriminator} has sent in a suggestion!`)
-                .addField('Suggestion:', `${reason1}`)
-                .addField('Server:', `${message.guild.name} (${message.guild.id})`)
-                .setThumbnail(client.user.avatarURL)
-
-            client.channels.find("id", `408276356497932309`).sendEmbed(embed1)
-            return
-        }
-
         if (command === "request") {
             sql.get(`SELECT * FROM time WHERE userId ="${message.author.id}"`).then(row => {
                 if (row.date !== myDate) {
@@ -331,7 +262,7 @@ client.on("message", message => {
             if (args[1] === "1") {
                 const embed = new Discord.RichEmbed()
                     .setColor("#68ca55")
-                    .addField('Success!', "Now playing BlueAnimeIvana in " + message.member.voiceChannel)
+                    .addField('Success!', "Je joue NRJ " + message.member.voiceChannel)
 
                 message.channel.sendEmbed(embed);
                 message.member.voiceChannel.join().then(connection => {
@@ -415,9 +346,7 @@ client.on("message", message => {
 `leave`: Make the bot leave the channel.\n\
 `list`: Lists the possible radio stations to be played.\n\
 `volume <0-200>`: Set\'s the volume for the bot.\n\
-`report`: Report a bug or something, not that you\'d know if that command was a bug.\n\
 `request`: Request a suggestion for a radio station to be added in. (Limited to using this command 3 times a day).\n\
-`suggest`: Suggest a feature or command you\'d like to see on the bot.')
                 .setThumbnail(client.user.avatarURL)
 
             message.channel.sendEmbed(embed)
@@ -426,9 +355,10 @@ client.on("message", message => {
     });
 });
     
-      if (command === "bs") {
+ client.on('message', message => {
+      if (command === prefix + "info") {
     const os = require('os');
-    var iconURL = "https://cdn.discordapp.com/attachments/420973238475030529/420973324143689728/giphy_5.gif"
+    var iconURL = ""
   console.log("▬▬▬▬ LOGS ▬▬▬▬\nUser ID :"+message.author.id+"\nServer: "+message.guild.name+"\nUsername: "+message.author.username+"\nCommand: k!bs\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ")
   let upTime = Math.round(os.uptime());
  let upTime1 = Math.round(process.uptime());
@@ -484,11 +414,10 @@ let embed_fields = [{
         message.channel.send({
             embed: {
                 author: {
-                    name: "Certurix Bot",
-                    icon_url: iconURL,
+                    name: "NRJ BOT",
                     url:'https://google.fr/'
                 },
-                color: 0x00FF00,
+                color: 0xFFFFFF,
                 fields: embed_fields
             }
         });
