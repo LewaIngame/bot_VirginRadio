@@ -5,6 +5,7 @@ const request = require("request");
 const sql = require("sqlite");
 sql.open("./guilds.sqlite");
 sql.open("./time.sqlite");
+const prefix = "nrj!"
 var date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
 var myDate = date.substr(0, 10);
 
@@ -72,21 +73,6 @@ client.on("message", message => {
         });
     });
 
-    if (message.author.bot) return;
-    sql.get(`SELECT * FROM guilds WHERE guildId ="${message.guild.id}"`).then(row => {
-        const prefix = row.prefix;
-        const args = message.content.split(" ");
-        let command = args[0];
-        command = command.slice(prefix.length)
-        if (!message.content.startsWith(prefix)) return;
-        var reason1 = args.slice(1).join(" ");
-
-        if (command === "ping") {
-            message.channel.send("Ping?").then(message => {
-                message.edit(`Pong! - ${Math.round(client.ping)} ms`);
-            });
-        }
-
         if (command === "restart") {
             if (message.author.id === config.owner) {
                 message.channel.send(":wave: Rebooting!")
@@ -95,7 +81,7 @@ client.on("message", message => {
                 }, 3 * 1000)
             }
             else {
-                message.channel.send("I'm sorry, only the bot creator can use this command!")
+                message.channel.send("Tu dois être le créateur")
             }
         }
 
@@ -123,35 +109,6 @@ client.on("message", message => {
             const embed = new Discord.RichEmbed()
                 .setColor("#68ca55")
                 .addField('Success:', `The prefix for **${message.guild.name}** is now **${newPrefix}**`)
-
-            message.channel.sendEmbed(embed);
-        }
-
-        if (command === "invite") {
-            const embed = new Discord.RichEmbed()
-                .setColor(3447003)
-                .addField('Invite me to your server!', '[Click Here](https://discordapp.com/oauth2/authorize?client_id=273299834470006786&scope=bot&permissions=8)')
-                .addField('Get support!', '[Click Here](https://discord.gg/WCxHjFX)')
-                .setThumbnail(client.user.avatarURL)
-
-            message.channel.sendEmbed(embed);
-        }
-
-        if (command === "website") {
-            const embed = new Discord.RichEmbed()
-                .setColor(3447003)
-                .addField('View our Website!', '[Click Here](http://animeradioclub.com/)')
-                .addField('View our Source code on Github!', '[Click Here](https://github.com/lol123Xb/Anime-Radio-Club-Discord-Bot)')
-                .setThumbnail(client.user.avatarURL)
-
-            message.channel.sendEmbed(embed);
-        }
-
-        if (command === "donate") {
-            const embed = new Discord.RichEmbed()
-                .setColor(3447003)
-                .addField('Donate Paypal', '[Click Here](https://www.paypal.me/FelixDoan)')
-                .setThumbnail(client.user.avatarURL)
 
             message.channel.sendEmbed(embed);
         }
@@ -234,8 +191,8 @@ client.on("message", message => {
         if (command === "list") {
             const embed = new Discord.RichEmbed()
                 .setColor(3447003)
-                .addField('Radio Station List:', '`1`: NRJ')
-                .setFooter("Request a radio station to be added with the `request` command.")
+                .addField('RListe des radio:', '`1`: NRJ')
+                .addField(':', '`2`: NRJ')
                 .setThumbnail(client.user.avatarURL)
 
             message.channel.sendEmbed(embed)
@@ -246,7 +203,7 @@ client.on("message", message => {
             if (!voiceChannel) {
                 const embed = new Discord.RichEmbed()
                     .setColor("#ff0000")
-                    .addField('Error!', "You must be in a Voice channel to use this command!")
+                    .addField('Error!', "Impossible ou est tu ?")
 
                 message.channel.sendEmbed(embed)
                 return
@@ -254,7 +211,7 @@ client.on("message", message => {
             if (!args[1]) {
                 const embed = new Discord.RichEmbed()
                     .setColor("#ff0000")
-                    .addField('Error!', "No radio was selected!")
+                    .addField('Error!', "Aucune radio selectionner!")
 
                 message.channel.sendEmbed(embed)
                 return
@@ -267,6 +224,19 @@ client.on("message", message => {
                 message.channel.sendEmbed(embed);
                 message.member.voiceChannel.join().then(connection => {
                     require('http').get("http://185.52.127.155/fr/30001/mp3_128.mp3?origine=fluxradios", (res) => {
+                        connection.playStream(res);
+                    })
+                })
+                return
+            }
+           if (args[1] === "1") {
+                const embed = new Discord.RichEmbed()
+                    .setColor("#68ca55")
+                    .addField('Success!', "Je joue Virgin radio " + message.member.voiceChannel)
+
+                message.channel.sendEmbed(embed);
+                message.member.voiceChannel.join().then(connection => {
+                    require('http').get("http://vr-live-mp3-128.scdn.arkena.com/virginradio.mp3", (res) => {
                         connection.playStream(res);
                     })
                 })
