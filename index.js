@@ -466,5 +466,6 @@ if (command === prefix + "ban") {
     }
     message.channel.sendMessage(+userToBan.username+"#"+userToBan.discriminator+" à été kick du serveur:white_check_mark: :white_check_mark: !")
 }
+})
 
 app.listen(AuthDetails.port);
