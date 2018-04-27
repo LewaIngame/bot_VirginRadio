@@ -5,7 +5,6 @@ const request = require("request");
 const sql = require("sqlite");
 sql.open("./guilds.sqlite");
 sql.open("./time.sqlite");
-const prefix = "nrj!"
 var date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
 var myDate = date.substr(0, 10);
 
@@ -20,7 +19,7 @@ client.on('message', message => {
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
   let args = message.content.split(" ").slice(1);
-  if (command === prefix + "ping") {
+  if (command === "ping") {
     startTime = Date.now();
   message.channel.sendMessage("Calcul en cours...").then((message) => {
     endTime = Date.now();
@@ -192,7 +191,7 @@ client.on("message", message => {
             const embed = new Discord.RichEmbed()
                 .setColor(3447003)
                 .addField('RListe des radio:', '`1`: NRJ')
-                .addField(':', '`2`: NRJ')
+                .addField(':', '`2`: Virgin radio')
                 .setThumbnail(client.user.avatarURL)
 
             message.channel.sendEmbed(embed)
@@ -229,7 +228,13 @@ client.on("message", message => {
                 })
                 return
             }
-           if (args[1] === "1") {
+            const embed = new Discord.RichEmbed()
+                .setColor("#ff0000")
+                .addField('Error!', "Radio does not exist!")
+
+            message.channel.sendEmbed(embed)
+        }
+           if (args[2] === "2") {
                 const embed = new Discord.RichEmbed()
                     .setColor("#68ca55")
                     .addField('Success!', "Je joue Virgin radio " + message.member.voiceChannel)
