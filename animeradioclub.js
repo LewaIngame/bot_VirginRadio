@@ -12,6 +12,21 @@ const version = "3.1"
 
 let listeners = 0;
 
+client.on('message', message => {
+  if (message.author.bot){ return; }
+  if (!message.content.startsWith(prefix)) { return;}
+  if (silenced[message.author.id]) { return;}
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
+  if (command === "ping") {
+    startTime = Date.now();
+  message.channel.sendMessage("Calcul en cours...").then((message) => {
+    endTime = Date.now();
+     message.edit("**Bot :** *" + Math.round(endTime - startTime) + "* **ms**\n**API** : *"+Math.round(client.ping)+"* **ms**");
+  }
+})
+
 client.on('ready', () => {
     var playing = ["Anime songs", `on ${client.guilds.size.toLocaleString()} servers`, "Type >help to get started!", "http://animeradioclub.com/"]
     var interval = setInterval(function() {
