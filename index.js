@@ -17,7 +17,7 @@ var search = require('youtube-search'),
 yt = require("./youtube_plugin"),
 youtube_plugin = new yt(),
 music = new Music();
-var prefix = ".";
+var prefix = "no!";
 var moment = require("moment");
 var mention = "<@1930903359700619264>";
 const opts = {
@@ -42,7 +42,7 @@ client.on('message', message => {
     var array_msg = message.content.split(' ');
             messages.push(message);
             switch (array_msg[0]) {
-        case ("!play") :
+        case (prefix + "play") :
             console.log("Play");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -51,7 +51,7 @@ client.on('message', message => {
             else music.voice();
             }
             break;
-        case ("!pause") :
+        case (prefix + "pause") :
             console.log("Pause");
             message.delete(message.author);
             if (!message.member.roles.find('name', 'DJ')) {
@@ -60,14 +60,14 @@ client.on('message', message => {
             music.pause();
             }
             break;
-        case ("!resume") :
+        case (prefix + "resume") :
             console.log("Resume");
             message.delete(message.author);
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
             if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
             music.resume();
             break;
-        case ("!stop") :
+        case (prefix + "stop") :
             console.log("Stop");
             message.delete(message.author);
             if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
@@ -75,7 +75,7 @@ client.on('message', message => {
             else music.stop();
             message.reply("La queue à été vidé !");
             break;
-        case ("!add") :
+        case (prefix + "add") :
             console.log("Add");
 			message.delete(message.author);
             var link = message.content.split(' ');
@@ -88,7 +88,7 @@ client.on('message', message => {
                 music.setTabEnd(results[y].link);
             })
             break;
-        case ("!link") :
+        case (prefix + "link") :
             console.log("Link");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -97,7 +97,7 @@ client.on('message', message => {
             console.log(link);
             music.setTabEnd(link);
             break;
-        case ("!volume") :
+        case (prefix + "volume") :
             console.log("Volume");
             message.delete(message.author);
             var link = message.content.split(' ');
@@ -106,7 +106,7 @@ client.on('message', message => {
             music.volume(link/100);
             message.reply("le volume et maintenant à :" + link);
             break;
-        case ("!next") :
+        case (prefix + "next") :
         console.log("Next");
         message.delete(message.author);
         if (music.getI() < music.getLengthTab()) music.setI(this.i + 1);
@@ -115,7 +115,7 @@ client.on('message', message => {
     break;
 }
     
-    if (message.content === ("!channel")){
+    if (message.content === (prefix + "!channel")){
     const data = client.channels.get(message.channel.id);
     moment.locale("fr");
     var temps = moment(data.createdTimestamp).format("LLLL");
@@ -125,7 +125,7 @@ client.on('message', message => {
     console.log("\n" + "**" + "Channel id: " + data.id + "**" );
     console.log(data);
     }
-else if (message.content.startsWith("!météo")){
+else if (message.content.startsWith(prefix +  "!météo")){
     var location = message.content.substr(6);
     var unit = "C";
     
@@ -177,7 +177,7 @@ client.on('message', message => {
 })
 
 client.on('message', function (message) {
-    if (message.content === "!avastliscense") {
+    if (message.content === prefix +  "!avastliscense") {
         message.reply('https://cdn.discordapp.com/attachments/428599482758856715/428614440674656270/Avast_Internet_Security_Till_28.10.2018.avastlic')
     }
 })
@@ -409,56 +409,31 @@ case ("chatte") :
 })
 
 client.on('message', message => {
-    var array_msg = message.content.split(' ');
-    messages.push(message);
-    switch (array_msg[0]) {
-case ("e!ditluitageule") :
-    message.channel.send(`TA GEULE PUTAIN`);
-    message.delete(message.author);
-    }
-})
-
-client.on('message', message => {
     if (message.content === 'Avatar') {
       message.channel.send(message.author.avatarURL);
-    }
-})
-
-
-client.on('message', message => {
-    if (message.content === 'Vip') {
-      message.channel.send(`https://eltixeroleplay.fr/index.php?account/upgrades https://cdn.discordapp.com/attachments/437284917114830850/437285216890126338/unknown.png`);
     }
 })
 
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find('name', 'welcome');
     if (!channel) return;
-    channel.send(`Bienvenue sur notre serveur discord, ${member}`);
+    channel.send(`Bienvenue sur notre serveur discord, ${message.author.username}`);
+})
+
+client.on('guildMemberRemove', member => {
+    member.guild.channels.find('name', 'welcome');
+    if (!channel) return;
+    channel.send(`A quiter notre serveur discord, ${message.author}`);
 })
 
 client.on('message', message => {
-    if (message.content == 'e!clear') {
-    if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
-    message.channel.sendMessage("Désoler mais vous n' avez pas la permission de faire ceci");
-    return;
-    } else if (!message.channel.permissionsFor(client.user).hasPermission("MANAGE_MESSAGES")) {
-    message.channel.sendMessage("Désoler mais vous n' avez pas la permission de faire ceci");
-    return;
-    }
-    if (message.channel.type == 'text') {
-        message.channel.fetchMessages()
-        .then(messages => {
-            message.channel.bulkDelete(messages);
-            messagesDeleted = messages.array().length; 
-        })
-        .catch(err => {
-            console.log('Error while doing Bulk Delete');
-            console.log(err);
-         });
-        }
-    }
-});
+    if (message.content === (prefix + 'avatar')){
+       const avatar_embed = new Discord.RichEmbed()
+        .setTitle('Avatar')
+        .addField('Votre avatar ', message.author.avatarURL)
 
+   message.channel.send(avatar_embed)
+    };
+});
 
 app.listen(AuthDetails.port);
