@@ -425,5 +425,75 @@ client.on("message", message => {
 
     });
 });
+    
+      if (command === "bs") {
+    const os = require('os');
+    var iconURL = "https://cdn.discordapp.com/attachments/420973238475030529/420973324143689728/giphy_5.gif"
+  console.log("▬▬▬▬ LOGS ▬▬▬▬\nUser ID :"+message.author.id+"\nServer: "+message.guild.name+"\nUsername: "+message.author.username+"\nCommand: k!bs\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ")
+  let upTime = Math.round(os.uptime());
+ let upTime1 = Math.round(process.uptime());
+     let upTimeSeconds2 = upTime1;
+        let upTimeOutput2 = "";
+        if (upTime<60) {
+            upTimeOutput2 = `${upTime1}s`;
+        } else if (upTime1<3600) {
+            upTimeOutput2 = `${Math.floor(upTime1/60)} minutes ${upTime1%60} secondes`;
+        } else if (upTime1<86400) {
+            upTimeOutput2 = `${Math.floor(upTime1/3600)} heures ${Math.floor(upTime1%3600/60)} minutes ${upTime1%3600%60} secondes`;
+        } else if (upTime1<604800) {
+            upTimeOutput2 = `${Math.floor(upTime1/86400)} jours ${Math.floor(upTime1%86400/3600)} heures ${Math.floor(upTime1%86400%3600/60)} minutes ${upTime%86400%3600%60} secondes`;
+        }
+         let upTimeSeconds = upTime;
+        let upTimeOutput = "";
+
+        if (upTime<60) {
+            upTimeOutput = `${upTime} secondes`;
+        } else if (upTime<3600) {
+            upTimeOutput = `${Math.floor(upTime/60)} minutes ${upTime%60} secondes`;
+        } else if (upTime<86400) {
+            upTimeOutput = `${Math.floor(upTime/3600)} heures ${Math.floor(upTime%3600/60)} minutes ${upTime%3600%60} secondes`;
+        } else if (upTime<604800) {
+            upTimeOutput = `${Math.floor(upTime/86400)} jours ${Math.floor(upTime%86400/3600)} heures ${Math.floor(upTime%86400%3600/60)} minutes ${upTime%86400%3600%60} secondes`;
+        }
+let embed_fields = [{
+                name: "Informations Système",
+                value: `Plateforme : ${process.platform}-${process.arch}\n ${process.release.name}\n Version : ${process.version.slice(1)}\n`,
+                inline: true
+            },
+            {
+                name: "Utilisation de la mémoire du processeur",
+                value: `${Math.ceil(process.memoryUsage().heapTotal / 1000000)} MB`,
+                inline: true
+            },
+            {
+                name: "Utilisation de la mémoire du système",
+                value: `${Math.ceil((os.totalmem() - os.freemem()) / 1000000)} / ${Math.ceil(os.totalmem() / 1000000)} MB`,
+                inline: true
+            },
+            {
+                name: "Durée de fonctionnement de l'ordinateur",
+                value: `:clock12: ${upTimeOutput}`,
+                inline: true
+            },
+            {
+                name: "Durée de fonctionnement du bot",
+                value: `:clock1230: ${upTimeOutput2}`,
+                inline: true
+            },
+
+        message.channel.send({
+            embed: {
+                author: {
+                    name: "Certurix Bot",
+                    icon_url: iconURL,
+                    url:'https://google.fr/'
+                },
+                color: 0x00FF00,
+                fields: embed_fields
+            }
+        });
+  }
+
+});
 
 client.login(config.token);
