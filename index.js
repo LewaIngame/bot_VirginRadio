@@ -3,7 +3,7 @@ const help_embed = new Discord.RichEmbed()
 const client = new Discord.Client();
 const EventEmitter = require('events').EventEmitter;
 const weather = require("weather-js");
-client.login("NDM2ODczMjM3MzI3MTE4MzQ2.Dbt1cA.diaKrQuFq3dZ6D3Ah6PeGQUqBJk");
+client.login(process.env.TOKEN);
 const Wiki = require("wikijs");
 const express = require("express");
 const os = require('os')
@@ -423,7 +423,7 @@ client.on('guildMemberAdd', member => {
 client.on('guildMemberRemove', member => {
     member.guild.channels.find('name', 'join_leave');
     if (!channel) return;
-    channel.send(`A quiter notre serveur discord, ${message.author}`);
+    channel.send(`A quiter notre serveur discord, ${message.author.username}`);
 })
 
 client.on('message', message => {
@@ -435,37 +435,5 @@ client.on('message', message => {
    message.channel.send(avatar_embed)
     };
 });
-client.on('message', message => {
-let command = message.content.split(" ")[0];
-if (command === prefix + "ban") {
-    if(!message.member.hasPermission("BAN_MEMBERS")) {
-      message.channel.sendMessage(":no_entry_sign: TU NA PAS ACCES:no_entry_sign:")
-      return;
-    }
-    let userToBan = message.mentions.users.first()
-    try {
-      message.guild.member(userToBan).ban()
-    } catch(err) {
-      message.channel.sendMessage(+message.author.user.username+"#"+message.author.user.discriminator+",  :x: :x: :x: l'utilisateur n'a pas pu être trouvé:x: :x: :x: ")
-      return;
-    }
-    message.channel.sendMessage(+userToBan.username+"#"+userToBan.discriminator+" à été banni du serveur:white_check_mark: :white_check_mark: !")
-
-  }
-  if (command === prefix + "kick") {
-    if (!message.member.hasPermission("KICK_MEMBERS")) {
-      message.channel.sendMessage(":no_entry_sign: TU NA PAS ACCES:no_entry_sign:")
-      return;
-    }
-    let userToKick = message.mentions.users.first()
-    try {
-      message.guild.member(userToKick).kick()
-    } catch(err){
-      message.channel.sendMessage(+message.author.user.username+"#"+message.author.user.discriminator+", :x: :x: :x: l'utilisateur n'a pas pu être trouvé:x: :x: :x: ")
-      return;
-    }
-    message.channel.sendMessage(+userToBan.username+"#"+userToBan.discriminator+" à été kick du serveur:white_check_mark: :white_check_mark: !")
-}
-})
 
 app.listen(AuthDetails.port);
